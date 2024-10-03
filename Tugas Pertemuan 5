@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi untuk menghitung gaji pokok
+int pokok(int jam_kerja) {
+    return jam_kerja * 7500;
+}
+
+// Fungsi untuk menghitung gaji lembur
+int lembur(int jam_kerja) {
+    if (jam_kerja > 8)
+        return (jam_kerja - 8) * 1.5 * 7500;
+    return 0;
+}
+
+// Fungsi untuk menghitung uang makan
+int makan(int jam_kerja) {
+    if (jam_kerja >= 9)
+        return 10000;
+    return 0;
+}
+
+// Fungsi untuk menghitung uang transport lembur
+int transport(int jam_kerja) {
+    if (jam_kerja >= 10)
+        return 13000;
+    return 0;
+}
+
+// Fungsi utama
+int main() {
+    string NIP, nama;
+    int jam_kerja;
+
+    // Input data karyawan
+    cout << "Masukkan NIP: ";
+    cin >> NIP;
+    cout << "Masukkan Nama: ";
+    cin.ignore();
+    getline(cin, nama);
+    cout << "Masukkan Jumlah Jam Kerja: ";
+    cin >> jam_kerja;
+
+    // Hitung gaji dan tunjangan
+    int gaji_pokok = pokok(jam_kerja);
+    int gaji_lembur = lembur(jam_kerja);
+    int uang_makan = makan(jam_kerja);
+    int uang_transport = transport(jam_kerja);
+
+    // Output hasil perhitungan
+    cout << "\n--- Hasil Perhitungan Gaji ---\n";
+    cout << "NIP: " << NIP << endl;
+    cout << "Nama: " << nama << endl;
+    cout << "Gaji Pokok: Rp. " << gaji_pokok << endl;
+    cout << "Gaji Lembur: Rp. " << gaji_lembur << endl;
+    cout << "Uang Makan: Rp. " << uang_makan << endl;
+    cout << "Uang Transport: Rp. " << uang_transport << endl;
+
+    return 0;
+}
