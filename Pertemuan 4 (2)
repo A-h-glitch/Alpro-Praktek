@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void fibonacci(int jumlah) {
+    int pertama = 0, kedua = 1, berikutnya;
+    cout << "Deret Fibonacci: ";
+    for (int i = 1; i <= jumlah; ++i) {
+        cout << pertama << " ";
+        berikutnya = pertama + kedua;
+        pertama = kedua;
+        kedua = berikutnya;
+    }
+    cout << endl;
+}
+
+int main() {
+    int jumlah;
+    cout << "Masukkan jumlah bilangan: ";
+    cin >> jumlah;
+    fibonacci(jumlah);
+    return 0;
+}
