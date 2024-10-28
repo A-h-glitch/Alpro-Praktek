@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool isPrima(int num) {
+    if (num < 2) return false;
+    for (int i = 2; i <= num / 2; ++i) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+void tampilkanDanJumlahkan(int batas) {
+    int jumlahGanjil = 0, jumlahGenap = 0, jumlahPrima = 0;
+
+    cout << "Bilangan Ganjil: ";
+    for (int i = 1; i <= batas; i += 2) {
+        cout << i << " ";
+        jumlahGanjil += i;
+    }
+    cout << "\nJumlah Bilangan Ganjil: " << jumlahGanjil << endl;
+
+    cout << "\nBilangan Genap: ";
+    for (int i = 2; i <= batas; i += 2) {
+        cout << i << " ";
+        jumlahGenap += i;
+    }
+    cout << "\nJumlah Bilangan Genap: " << jumlahGenap << endl;
+
+    cout << "\nBilangan Prima: ";
+    for (int i = 2; i <= batas; ++i) {
+        if (isPrima(i)) {
+            cout << i << " ";
+            jumlahPrima += i;
+        }
+    }
+    cout << "\nJumlah Bilangan Prima: " << jumlahPrima << endl;
+}
+
+int main() {
+    int batas;
+    cout << "Masukkan batas: ";
+    cin >> batas;
+    tampilkanDanJumlahkan(batas);
+    return 0;
+}
